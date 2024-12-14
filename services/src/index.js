@@ -3,6 +3,7 @@ import express from "express";
 import database from "./config/database.config.js";
 import cors from "cors";
 dotenv.config();
+import router_v1 from "./apis/v1/routers/index.router.js";
 
 const app = express();
 const PORT = process.env.PORT || 8081;
@@ -35,6 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // START CONNECT TO DATABASE  =====================================================================
 
+// Register API routes
+router_v1(app);
 const connectToDatabase = async () => {
   try {
     const connection = await database.getConnection();
