@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  backend-watchhub:
+    build:
+      context: ./service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - DB_HOST=database-watchhub # Cập nhật lại tên dịch vụ database
+      - DB_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - DB_NAME=watchhub_production
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database-watchhub # Cập nhật lại tên dịch vụ database
+    entrypoint:
+      [
+        "sh",
+        "-c",
+        "until nc -z database-watchhub 3306; do echo 'Waiting for MySQL'; sleep 2; done; npm start",
+      ]
+
+  database-watchhub:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: watchhub_production
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306" # Giữ cổng này nếu cần truy cập từ ngoài container
+    expose:
+      - 3306 # Chỉ mở cổng trong container
+
+volumes:
+  mysql_data:
+    driver: local
