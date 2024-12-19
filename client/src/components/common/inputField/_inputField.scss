@@ -1,0 +1,32 @@
+@import "../../../assets/style/utils/variables";
+
+.input-group {
+  margin-bottom: 1rem;
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: black;
+    font-size: 0.9em;
+  }
+
+  .form-control {
+    color: #000000;
+    padding: 0.75rem;
+    font-size: 1rem;
+    display: block;
+    border: 0.5px solid #00000062;
+    background: transparent;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &::placeholder {
+      color: #e2d6d657;
+    }
+
+    &:focus {
+      border-color: #000000;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+  }
+}
