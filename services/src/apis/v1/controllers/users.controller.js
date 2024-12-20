@@ -1,3 +1,4 @@
+import { handleErrorServer } from "../helpers/handleErrorServer.js";
 import Users from "../models/users.model.js";
 
 export const getUsers = async (req, res) => {
@@ -6,13 +7,11 @@ export const getUsers = async (req, res) => {
 
     res.status(200).json({
       status: "success",
-      data: users,
+      data: {
+        users,
+      },
     });
   } catch (error) {
-    return res.status(500).json({
-      status: "error",
-      message: error.message || "Internal server error",
-      name: error.name || "Error",
-    });
+    handleErrorServer(error);
   }
 };

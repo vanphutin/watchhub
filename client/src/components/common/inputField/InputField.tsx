@@ -13,6 +13,7 @@ interface Props {
   disabled?: boolean;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  ref?: React.Ref<HTMLInputElement>;
 }
 
 const InputField: React.FC<Props> = ({
@@ -25,6 +26,7 @@ const InputField: React.FC<Props> = ({
   value,
   onChange,
   disabled,
+  ref,
 }) => {
   return (
     <>
@@ -33,6 +35,7 @@ const InputField: React.FC<Props> = ({
           <Form.Label>{label}</Form.Label>
         </div>
         <Form.Control
+          ref={ref}
           size={size}
           type={type}
           placeholder={placeholder}

@@ -35,3 +35,58 @@ export const validateLogin = async (req, res, next) => {
   //pass
   next();
 };
+
+// func validate Email
+const validateEmail = (email) => {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailRegex.test(email);
+};
+
+export const validateRegister = async (req, res, next) => {
+  const { username, password, email } = req.body;
+  // Kiểm tra các trường theo yêu cầu
+  const requiredFields = ["username", "password", "email"];
+  for (const field of requiredFields) {
+    if (!req.body[field]) {
+      return res.status(400).json({
+        status: "error",
+        message: ` Missing required field ${field}`,
+      });
+    }
+  }
+  //check password
+  if (password.length < 6) {
+    return res.status(400).json({
+      status: "error",
+      message: "password to short",
+    });
+  }
+
+  // check username
+  const checkUsername = await Users.checkUsername(username);
+  if (checkUsername) {
+    return res.status(400).json({
+      status: "error",
+      message: "username already exists",
+    });
+  }
+  // check email
+  const checkEmail = await Users.checkEmail(email);
+
+  if (!validateEmail(email)) {
+    return res.status(400).json({
+      status: "error",
+      message: "email is invalid",
+    });
+  }
+
+  if (checkEmail) {
+    return res.status(400).json({
+      status: "error",
+      message: "email already exists",
+    });
+  }
+
+  //pass
+  next();
+};

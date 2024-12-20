@@ -31,11 +31,36 @@ const Users = {
       handleErrorSQL(error);
     }
   },
+  checkEmail: async (username) => {
+    const sql_checkUserName = "SELECT * FROM users where email=?";
+    try {
+      const [rows] = await db.query(sql_checkUserName, username);
+
+      return rows[0];
+    } catch (error) {
+      handleErrorSQL(error);
+    }
+  },
   checkPassword: async (password) => {
     const sql_checkPassword = "SELECT * FROM users where password=?";
     try {
       const [rows] = await db.query(sql_checkPassword, password);
       return rows[0];
+    } catch (error) {
+      handleErrorSQL(error);
+    }
+  },
+  register: async (id, username, password, email) => {
+    const sql_register =
+      "INSERT INTO users (id, username,password,email) VALUES (?, ?, ?, ?)";
+    try {
+      const [rows] = await db.query(sql_register, [
+        id,
+        username,
+        password,
+        email,
+      ]);
+      return rows;
     } catch (error) {
       handleErrorSQL(error);
     }
