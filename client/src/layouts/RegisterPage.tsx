@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RegisterForm from "../components/register/registerForm";
+import RegisterForm from "../components/register/RegisterForm";
 import { UserRegister } from "../interfaces/User";
 import "../assets/style/pages/_login.scss";
 import { handleApiError } from "../utils/handleApiError";
