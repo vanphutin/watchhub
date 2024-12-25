@@ -25,6 +25,8 @@ const loginReducers = (
       return { ...state, loading: false, data: action.payload };
     case ActionType.USER_LOGIN_ERROR:
       return { ...state, loading: false, error: action.payload };
+    case ActionType.USER_LOGOUT:
+      return { ...state, data: null };
     default:
       return state;
   }

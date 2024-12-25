@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Using localStorage
 import { thunk } from "redux-thunk";
 import reducer, { RootState } from "./reducers";
+import authMiddleware from "./middleware/authMiddleware";
 
 // Setting up Redux DevTools and middleware
 const composeEnhancers =
@@ -18,7 +19,7 @@ const persistedReducer = persistReducer<RootState>(persistConfig, reducer);
 
 export const store = createStore(
   persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(authMiddleware, thunk))
 );
 
 // Initialize persistor to keep track of persisted state

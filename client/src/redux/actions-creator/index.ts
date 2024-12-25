@@ -22,3 +22,8 @@ export const userLogin = (username: string, password: string) => {
     }
   };
 };
+
+// logout
+export const userLogOut = () => ({
+  type: ActionType.USER_LOGOUT,
+});

@@ -14,7 +14,12 @@ interface UserLoginErrorAction {
   payload: string;
 }
 
+interface UserLogOutAction {
+  type: ActionType.USER_LOGOUT;
+}
+
 export type Action =
   | UserLoginAction
   | UserLoginSuccessAction
-  | UserLoginErrorAction;
+  | UserLoginErrorAction
+  | UserLogOutAction;
