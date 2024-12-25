@@ -1,0 +1,22 @@
+@import "../../../assets/style/utils/variables";
+.logo {
+  cursor: pointer;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+  .logo-main {
+    font-size: $font-size-logo;
+    font-weight: 800;
+    color: $color-text-main;
+  }
+
+  .logo-sub {
+    display: block;
+    margin-top: -15px;
+    font-size: 12px;
+    .c {
+      color: $color-text-title;
+    }
+  }
+}

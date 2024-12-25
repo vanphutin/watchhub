@@ -1,0 +1,24 @@
+.header-account {
+  .premium {
+    color: gold;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid gold;
+    border-radius: 4px;
+    background-color: rgba(255, 215, 0, 0.1);
+  }
+
+  .upgrade {
+    color: #6d6963; /* Màu cam cho Upgrade */
+    background-color: #fff3e0; /* Màu nền nhạt cho Upgrade */
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #b6b3ad; /* Màu nền khi hover */
+    }
+  }
+}
