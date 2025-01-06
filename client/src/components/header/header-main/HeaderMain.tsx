@@ -1,9 +1,10 @@
 import React from "react";
 import Logo from "../../common/logo/Logo";
-import Button from "../../common/button/Button";
 import "./_headerMain.scss";
 import HeaderStatus from "../header-status/HeaderStatus";
 import HeaderSearch from "../header-search/HeaderSearch";
+import { IoMdMenu } from "react-icons/io";
+
 // trong header main này sẽ có login - ô tìm kiếm - trạng thái premium - login/register || usrrname/logout
 
 interface HeaderMainProps {
@@ -22,17 +23,21 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   username,
 }) => {
   return (
-    <div className="header header-main   navbar navbar-expand-lg ">
-      <div className="container  d-flex align-items-center justify-content-between">
+    <div className="header header-main navbar navbar-expand-lg ">
+      <div className="container header-main-items">
         <div className="header-logo">
           <Logo logoName={logoName} />
         </div>
-        <HeaderSearch />
-        <HeaderStatus
-          isVip={is_vip === 0 ? false : true}
-          isLoggedIn={isLoggedIn}
-          username={username}
-        />
+        <div className=" d-none d-lg-block">
+          <div className="d-flex align-items-center justify-content-between">
+            <HeaderSearch />
+            <HeaderStatus
+              isVip={is_vip === 0 ? false : true}
+              isLoggedIn={isLoggedIn}
+              username={username}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -14,11 +14,11 @@ const HeaderUser: React.FC<{ username: string | undefined }> = ({
 
   return (
     <div>
-      <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <div className="navbar-collapse" id="navbarNavDarkDropdown">
         <ul className="navbar-nav">
           <li className="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle text-white"
+              className="nav-link dropdown-toggle text-white px-3"
               href="#"
               id="navbarDarkDropdownMenuLink"
               role="button"

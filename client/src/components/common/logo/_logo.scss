@@ -1,4 +1,5 @@
 @import "../../../assets/style/utils/variables";
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Sixtyfour&display=swap");
 .logo {
   cursor: pointer;
   text-align: center;
@@ -8,7 +9,10 @@
   .logo-main {
     font-size: $font-size-logo;
     font-weight: 800;
-    color: $color-text-main;
+    color: $color-logo;
+    font-family: "Sixtyfour", serif;
+    font-weight: 400;
+    font-style: normal;
   }
 
   .logo-sub {

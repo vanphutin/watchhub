@@ -1,8 +1,12 @@
 @import "../../../assets/style/utils/variables";
 
+@import "../../../assets/style/utils/responive";
 .header-main {
   color: $color-text-main;
   background: $color-header-main;
-  .container-main {
+  .container {
+    @include mobile {
+      display: block;
+    }
   }
 }

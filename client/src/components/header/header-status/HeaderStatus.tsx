@@ -9,13 +9,11 @@ const HeaderStatus: React.FC<{
   username?: string;
   isLoggedIn?: boolean;
 }> = ({ isVip, username, isLoggedIn }) => {
-  console.log("isv", isVip);
-
   return (
-    <div className="header-account d-flex">
-      <div className="header-lang px-4" style={{ margin: "auto" }}>
+    <div className="header-account d-flex ">
+      <span className="header-lang px-4" style={{ margin: "auto" }}>
         <OptionLang />
-      </div>
+      </span>
       {isLoggedIn ? (
         <>
           <div className="header-status  px-3" style={{ margin: "auto" }}>
@@ -26,7 +24,7 @@ const HeaderStatus: React.FC<{
             )}
           </div>
 
-          <span className="header-username">
+          <span className="header-username" style={{ margin: "auto" }}>
             <HeaderUser username={username} />
           </span>
         </>

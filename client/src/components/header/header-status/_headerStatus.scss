@@ -1,4 +1,18 @@
+@import "../../../assets/style/utils/responive";
+@import "../../../assets/style/utils/variables";
 .header-account {
+  @include mobile {
+    background-color: $color-header-sub;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
+  @include tablet {
+    background-color: $color-header-sub;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
   .premium {
     color: gold;
     font-weight: bold;
