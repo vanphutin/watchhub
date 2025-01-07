@@ -11,14 +11,17 @@ import { store } from "./redux/store.ts";
 import { ToggleMenuProvider } from "./context/menuToggle/index.tsx";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n.ts";
+import LanguageProvider from "./context/languageContext/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <ToggleMenuProvider>
-          <RouterProvider router={router}></RouterProvider>
-        </ToggleMenuProvider>
+        <LanguageProvider>
+          <ToggleMenuProvider>
+            <RouterProvider router={router}></RouterProvider>
+          </ToggleMenuProvider>
+        </LanguageProvider>
       </I18nextProvider>
     </Provider>
   </StrictMode>
