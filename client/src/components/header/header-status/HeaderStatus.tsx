@@ -4,11 +4,15 @@ import Button from "../../common/button/Button";
 import { Link } from "react-router-dom";
 import HeaderUser from "../header-user/HeaderUser";
 import "./_headerStatus.scss";
+import { useTranslation } from "react-i18next";
+
 const HeaderStatus: React.FC<{
   isVip?: boolean;
   username?: string;
   isLoggedIn?: boolean;
 }> = ({ isVip, username, isLoggedIn }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="header-account d-flex ">
       <span className="header-lang px-4" style={{ margin: "auto" }}>
@@ -31,10 +35,16 @@ const HeaderStatus: React.FC<{
       ) : (
         <>
           <Link to="/login">
-            <Button text="Login" className="btn btn-outline-light mx-3" />
+            <Button
+              text={t("auth.login.descrice")}
+              className="btn btn-outline-light mx-3"
+            />
           </Link>
           <Link to="/register">
-            <Button text="Register" className="btn btn-outline-primary" />
+            <Button
+              text={t("auth.register.descrice")}
+              className="btn btn-outline-primary"
+            />
           </Link>
         </>
       )}

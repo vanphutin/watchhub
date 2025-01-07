@@ -1,0 +1,59 @@
+{
+  "common": {
+    "search": "Tìm kiếm"
+  },
+  "header": {
+    "menu": {
+      "home": "Trang chủ",
+      "singleMovies": "Phim lẻ",
+      "tvSeries": "Phim truyền hình",
+      "movieGenres": "Thể loại phim",
+      "blog": "Blog",
+      "about": "Giới thiệu",
+      "subMenu": {
+        "action": "Hành động",
+        "comedy": "Hài hước",
+        "horror": "Kinh dị",
+        "romance": "Lãng mạn",
+        "scienceFiction": "Khoa học viễn tưởng",
+        "adventure": "Phiêu lưu",
+        "animation": "Hoạt hình",
+        "war": "Chiến tranh",
+        "drama": "Tâm lý",
+        "crime": "Hình sự",
+        "musical": "Ca nhạc",
+        "documentary": "Tài liệu",
+        "fantasy": "Huyền bí",
+        "family": "Gia đình"
+      }
+    },
+    "notification": {
+      "notifyOne": "Hãy truy cập",
+      "notifyTwo": "để làm các bài kiểm tra nào !"
+    }
+  },
+
+  "auth": {
+    "login": {
+      "title": "Chào mừng trở lại",
+      "descrice": "Đăng nhập",
+      "emailPlaceholder": "Nhập email của bạn",
+      "passwordPlaceholder": "Nhập mật khẩu của bạn",
+      "submitButton": "Đăng nhập",
+      "forgotPassword": "Quên mật khẩu?",
+      "noAccount": "Chưa có tài khoản?",
+      "register": "Đăng ký tại đây"
+    },
+    "register": {
+      "title": "Tạo một tài khoản",
+      "descrice": "Đăng kí",
+      "emailPlaceholder": "Nhập email của bạn",
+      "passwordPlaceholder": "Nhập mật khẩu của bạn",
+      "submitButton": "Đăng ký",
+      "alreadyHaveAccount": "Đã có tài khoản? Đăng nhập tại đây"
+    },
+    "logout": {
+      "title": "Đăng xuất"
+    }
+  }
+}

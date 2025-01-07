@@ -3,10 +3,11 @@
 
 .header-sub {
   background-color: $color-header-sub;
-  box-shadow: rgba(183, 183, 185, 0.25) 0px 50px 100px -20px,
-    rgba(188, 185, 185, 0.3) 0px 30px 60px -30px;
   color: $color-text-main;
-
+  z-index: 9999;
+  -webkit-box-shadow: 0px 3px 14px -1px rgb(22, 29, 35);
+  -moz-box-shadow: 0px 3px 14px -1px rgb(22, 29, 35);
+  box-shadow: 0px 5px 10px -1px rgb(22, 29, 35);
   a {
     text-decoration: none;
   }
@@ -46,9 +47,11 @@
           grid-template-columns: auto auto auto;
           padding: 10px;
           list-style: none;
+          gap: 10px;
+          width: 400px;
           .submenu-item {
             padding: 5px 10px;
-
+            margin: 0 10px;
             a {
               color: $color-text-main;
               text-decoration: none;

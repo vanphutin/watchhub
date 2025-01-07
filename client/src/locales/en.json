@@ -1,0 +1,58 @@
+{
+  "common": {
+    "search": "Search"
+  },
+  "header": {
+    "menu": {
+      "home": "Home",
+      "singleMovies": "Single Movies",
+      "tvSeries": "TV Series",
+      "movieGenres": "Movie Genres",
+      "blog": "Blog",
+      "about": "About",
+      "subMenu": {
+        "action": "Action",
+        "comedy": "Comedy",
+        "horror": "Horror",
+        "romance": "Romance",
+        "scienceFiction": "Science Fiction",
+        "adventure": "Adventure",
+        "animation": "Animation",
+        "war": "War",
+        "drama": "Drama",
+        "crime": "Crime",
+        "musical": "Musical",
+        "documentary": "Documentary",
+        "fantasy": "Fantasy",
+        "family": "Family"
+      }
+    },
+    "notification": {
+      "notifyOne": "Visit",
+      "notifyTwo": "to take the quiz!"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "descrice": "Login",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Sign In",
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "register": "Register here"
+    },
+    "register": {
+      "title": "Create an Account",
+      "descrice": "Register",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Register",
+      "alreadyHaveAccount": "Already have an account? Sign In here"
+    },
+    "logout": {
+      "title": "Log Out"
+    }
+  }
+}

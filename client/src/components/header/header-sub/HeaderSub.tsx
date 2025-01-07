@@ -1,46 +1,57 @@
 import React, { useContext } from "react";
 import "./_headerSub.scss";
-import { data, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import { MenuContext } from "../../../context/menuToggle/MenuContext";
-
-const MENU_SUB_ARRAY_LIST: {
-  [key: string]: {
-    name: string;
-    link: string;
-    subMenu: string[];
-    icon?: React.ReactNode;
-  };
-} = {
-  home: { name: "Home", link: "/", subMenu: [] },
-  singleMovies: { name: "Single movies", link: "/single-movies", subMenu: [] },
-  TVSeries: {
-    name: "TV Series",
-    link: "#",
-    subMenu: [
-      "Action",
-      "Comedy",
-      "Horror",
-      "Romance",
-      "Science Fiction",
-      "Adventure",
-      "Animation",
-      "War",
-      "Drama",
-      "Crime",
-      "Musical",
-      "Documentary",
-      "Fantasy",
-      "Family",
-    ],
-    icon: <MdArrowDropDown />,
-  },
-  movieGenres: { name: "Movie genres", link: "/movie-genres", subMenu: [] },
-  blog: { name: "Blog", link: "/blog", subMenu: [] },
-  about: { name: "About", link: "/about", subMenu: [] },
-};
+import { useTranslation } from "react-i18next";
 
 const HeaderSub = () => {
+  const { t } = useTranslation();
+
+  const MENU_SUB_ARRAY_LIST: {
+    [key: string]: {
+      name: string;
+      link: string;
+      subMenu: string[];
+      icon?: React.ReactNode;
+    };
+  } = {
+    home: { name: t("header.menu.home"), link: "/", subMenu: [] },
+    singleMovies: {
+      name: t("header.menu.singleMovies"),
+      link: "/single-movies",
+      subMenu: [],
+    },
+    TVSeries: {
+      name: t("header.menu.tvSeries"),
+      link: "#",
+      subMenu: [
+        t("header.menu.subMenu.action"),
+        t("header.menu.subMenu.comedy"),
+        t("header.menu.subMenu.horror"),
+        t("header.menu.subMenu.romance"),
+        t("header.menu.subMenu.scienceFiction"),
+        t("header.menu.subMenu.adventure"),
+        t("header.menu.subMenu.animation"),
+        t("header.menu.subMenu.war"),
+        t("header.menu.subMenu.drama"),
+        t("header.menu.subMenu.crime"),
+        t("header.menu.subMenu.musical"),
+        t("header.menu.subMenu.documentary"),
+        t("header.menu.subMenu.fantasy"),
+        t("header.menu.subMenu.family"),
+      ],
+      icon: <MdArrowDropDown />,
+    },
+    movieGenres: {
+      name: t("header.menu.movieGenres"),
+      link: "/movie-genres",
+      subMenu: [],
+    },
+    blog: { name: t("header.menu.blog"), link: "/blog", subMenu: [] },
+    about: { name: t("header.menu.about"), link: "/about", subMenu: [] },
+  };
+
   const context = useContext(MenuContext);
   if (!context) {
     throw new Error("Header must be used within a ToggleMenuProvider");

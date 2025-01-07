@@ -2,10 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { userLogOut } from "../../../redux/actions-creator";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HeaderUser: React.FC<{ username: string | undefined }> = ({
   username,
 }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -47,7 +49,7 @@ const HeaderUser: React.FC<{ username: string | undefined }> = ({
                   to="/login"
                   onClick={handleLogout}
                 >
-                  Logout
+                  {t("auth.logout.title")}
                 </Link>
               </li>
             </ul>
