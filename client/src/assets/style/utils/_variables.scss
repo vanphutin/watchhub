@@ -12,7 +12,7 @@ $font-size-logo: 2em;
 
 /* Màu sắc chính */
 $color-header-main: #020203;
-$color-home: #202b35;
+$color-home: #151d25;
 $color-logo: #ffffff;
 $color-heading-intro: linear-gradient(to right, #ff8a00, #ff2070);
 $color-header-sub: #12171b;
@@ -20,3 +20,17 @@ $color-text-main: #ffffffb8;
 $color-text-secondary: #d0d0d0;
 $color-text-title: #ff9800;
 $color-text-warning: #fffb00;
+
+// color text heading
+$gradient-text: linear-gradient(to right, #ff8a00, #ff2070);
+$gradient-clip: text;
+$gradient-fill: transparent;
+$gradient-decoration: clone;
+
+.text-heading {
+  background: $gradient-text;
+  -webkit-background-clip: $gradient-clip;
+  -webkit-text-fill-color: $gradient-fill;
+  -webkit-box-decoration-break: $gradient-decoration;
+  box-decoration-break: $gradient-decoration;
+}

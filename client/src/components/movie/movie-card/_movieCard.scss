@@ -1,0 +1,136 @@
+// Biến màu sắc (nếu cần dùng lại nhiều lần)
+$primary-color: #365979;
+$trending-color: #ff4040;
+$complete-color: #ffa500;
+$text-color-light: #ff9800;
+$text-color-secondary: #fff;
+$background-color-card: #1e1e1e;
+
+.movie-card {
+  cursor: pointer;
+  width: 100%;
+  // max-width: 200px; /* Giảm kích thước thẻ */
+  background-color: $background-color-card;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  a {
+    text-decoration: none;
+  }
+  .movie-card-frame {
+    display: flex;
+    flex-direction: column;
+
+    .card-banner {
+      position: relative;
+      width: 100%;
+      height: 260px; /* Cố định chiều cao nhỏ hơn */
+      overflow: hidden;
+
+      .card-banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+
+        &::after {
+          content: "PLAY";
+          font-size: 18px; /* Kích thước chữ nhỏ hơn */
+          font-weight: bold;
+          color: white;
+        }
+      }
+
+      &:hover .card-overlay {
+        opacity: 1;
+      }
+
+      .status-badge-intro {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .status-badge {
+          padding: 2px 6px; /* Giảm padding */
+          font-size: 12px; /* Giảm kích thước chữ */
+          font-weight: bold;
+          color: $text-color-secondary;
+          border-radius: 4px;
+
+          &.lang {
+            background: $primary-color;
+          }
+
+          &.quality {
+            background-color: $trending-color;
+          }
+        }
+      }
+
+      .status-badge.complete {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        padding: 2px 6px;
+        font-size: 12px;
+        background-color: $complete-color;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 4px;
+      }
+    }
+
+    .card-details {
+      padding: 12px; /* Giảm padding */
+      text-align: center;
+      background-color: rgb(32 42 52);
+
+      .entry-title {
+        white-space: nowrap; // Chỉ hiển thị một dòng
+        overflow: hidden; // Ẩn phần vượt quá
+        text-overflow: ellipsis; // Thêm dấu "..."
+
+        padding-top: 20px;
+        font-size: 14px; /* Kích thước chữ nhỏ hơn */
+        font-weight: bold;
+        color: $text-color-light;
+        margin: 0;
+      }
+
+      .original-title {
+        white-space: nowrap; // Chỉ hiển thị một dòng
+        overflow: hidden; // Ẩn phần vượt quá
+        text-overflow: ellipsis; // Thêm dấu "..."
+
+        font-size: 12px; /* Kích thước chữ nhỏ hơn */
+        font-style: italic;
+        padding-top: 5px;
+        color: $text-color-secondary;
+        margin: 4px 0 0 0;
+      }
+    }
+  }
+}
