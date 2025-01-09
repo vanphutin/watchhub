@@ -1,6 +1,7 @@
 {
   "common": {
-    "search": "Tìm kiếm"
+    "search": "Tìm kiếm",
+    "view": "Xem thêm"
   },
   "header": {
     "menu": {
@@ -54,6 +55,28 @@
     },
     "logout": {
       "title": "Đăng xuất"
+    }
+  },
+  "movie": {
+    "cartoon": {
+      "title": {
+        "heading": "Phim hoạt hình"
+      }
+    },
+    "singlemovie": {
+      "title": {
+        "heading": "Phim lẻ"
+      }
+    },
+    "tvseries": {
+      "title": {
+        "heading": "Phim bộ"
+      }
+    },
+    "tvshows": {
+      "title": {
+        "heading": "Chương trình truyền hình"
+      }
     }
   }
 }

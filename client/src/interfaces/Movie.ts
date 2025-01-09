@@ -25,7 +25,7 @@ interface Country {
   slug: string;
 }
 
-interface Item {
+export interface Item {
   modified: {
     time: string;
   };
@@ -57,4 +57,5 @@ interface MovieData {
 export interface ApiResponseMovie extends MovieData {
   status: string;
   msg: string;
+  data: MovieData;
 }

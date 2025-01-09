@@ -1,6 +1,7 @@
 {
   "common": {
-    "search": "Search"
+    "search": "Search",
+    "view": "See more "
   },
   "header": {
     "menu": {
@@ -53,6 +54,28 @@
     },
     "logout": {
       "title": "Log Out"
+    }
+  },
+  "movie": {
+    "cartoon": {
+      "title": {
+        "heading": "Cartoon"
+      }
+    },
+    "singlemovie": {
+      "title": {
+        "heading": "Signle Movie"
+      }
+    },
+    "tvseries": {
+      "title": {
+        "heading": "TV series"
+      }
+    },
+    "tvshows": {
+      "title": {
+        "heading": "TV shows"
+      }
     }
   }
 }

@@ -24,7 +24,7 @@ const MovieCard: React.FC<MovieDetailProps> = ({
   return (
     <div className="movie-card">
       {/* Khung chính của thẻ phim */}
-      <Link to={`/phim/${slug}`}>
+      <Link to={`/movie/${slug}`}>
         <div className="movie-card-frame">
           {/* Ảnh và trạng thái của thẻ */}
           <div className="card-banner">
