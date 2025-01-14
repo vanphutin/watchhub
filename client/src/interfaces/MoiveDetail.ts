@@ -51,36 +51,36 @@ export interface Episode {
 
 export interface Movie {
   _id?: string;
-  name: string;
-  slug: string;
-  origin_name: string;
-  content: string;
-  type: string;
-  status: string;
-  poster_url: string;
-  thumb_url: string;
-  is_copyright: boolean;
-  sub_docquyen: boolean;
-  chieurap: boolean;
-  trailer_url: string;
-  time: string;
-  episode_current: string;
-  episode_total: string;
-  quality: string;
-  lang: string;
-  notify: string;
-  showtimes: string;
-  year: number;
-  view: number;
-  actor: Actor[];
-  director: Director[];
-  category: Category[];
-  country: Country[];
-  tmdb: TmdbDetails;
-  imdb: ImdbDetails;
-  created: Created;
-  modified: Modified;
-  episodes: Episode[];
+  name?: string;
+  slug?: string;
+  origin_name?: string;
+  content?: string | null;
+  type?: string;
+  status?: string;
+  poster_url?: string;
+  thumb_url?: string;
+  is_copyright?: boolean;
+  sub_docquyen?: boolean;
+  chieurap?: boolean;
+  trailer_url?: string;
+  time?: string;
+  episode_current?: string;
+  episode_total?: string;
+  quality?: string;
+  lang?: string;
+  notify?: string;
+  showtimes?: string;
+  year?: number;
+  view?: number;
+  actor?: Actor[];
+  director?: Director[];
+  category?: Category[];
+  country?: Country[];
+  tmdb?: TmdbDetails;
+  imdb?: ImdbDetails;
+  created?: Created;
+  modified?: Modified;
+  episodes?: Episode[];
 }
 
 export interface ApiResponseMovieDetail {
