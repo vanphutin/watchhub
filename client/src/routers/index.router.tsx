@@ -9,6 +9,7 @@ import AboutPage from "../pages/AboutPage";
 import PaginationPage from "../pages/PaginationPage";
 import Main from "../pages/Main";
 import MovieDetailPage from "../pages/MovieDetailPage";
+import MovieGenres from "../pages/MovieGenres";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
               {
                 element: <MovieDetailPage />,
                 path: "/movie/:id",
+              },
+              {
+                element: <MovieGenres />,
+                path: "/movie-genres/:id",
               },
             ],
           },

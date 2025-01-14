@@ -12,22 +12,18 @@ interface MovieFrameProps {
   hasMore?: boolean;
   loading?: boolean;
   title: string;
+  href?: string;
   loadMore?: () => void;
 }
 
-const MovieFrame: React.FC<MovieFrameProps> = ({
-  movie,
-
-  title,
-}) => {
+const MovieFrame: React.FC<MovieFrameProps> = ({ movie, href, title }) => {
   const { t } = useTranslation();
-
   // Kiểm tra dữ liệu đầu vào
   const { items = [], type_list } = movie || {};
   const [searchParams] = useSearchParams();
   const tab = searchParams.get("tab");
   return (
-    <>
+    <section id={href}>
       <Heading className={movie?.type_list} context={t(title)} contextSub="" />
       <ul className={`movie movies-${type_list} row `}>
         {items.map((item) => (
@@ -49,7 +45,8 @@ const MovieFrame: React.FC<MovieFrameProps> = ({
         ))}
       </ul>
 
-      {tab !== "phim-le" &&
+      {type_list &&
+        tab !== "phim-le" &&
         tab !== "hoat-hinh" &&
         tab !== "phim-bo" &&
         tab !== "tv-shows" && (
@@ -62,7 +59,7 @@ const MovieFrame: React.FC<MovieFrameProps> = ({
             </Link>
           </div>
         )}
-    </>
+    </section>
   );
 };
 
