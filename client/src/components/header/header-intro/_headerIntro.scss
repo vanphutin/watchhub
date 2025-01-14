@@ -7,7 +7,8 @@
   -moz-border-radius-bottomleft: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #000;
+  background-color: #202327;
+
   z-index: 9999;
   -webkit-box-shadow: 0px 3px 14px -1px rgb(22, 29, 35);
   -moz-box-shadow: 0px 3px 14px -1px rgb(22, 29, 35);
@@ -17,8 +18,8 @@
       font-size: 15px;
       padding: 10px 0;
     }
-    font-size: 25px;
-    padding: 20px 0;
+    font-size: 1rem;
+    padding: 15px 0;
     line-height: 24px;
     position: relative;
     display: flow-root;
