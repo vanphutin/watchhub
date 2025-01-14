@@ -1,0 +1,33 @@
+.movie-search-tip {
+  display: flex;
+  background-color: #224361;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 10px;
+  .tip-icon {
+    display: flex;
+    font-size: 3rem;
+    color: #d1b514;
+    margin-right: 20px;
+  }
+
+  .tip-msg {
+    font-size: 16px;
+    color: #d4c67b;
+
+    .syntax {
+      font-weight: 700;
+      color: #ff00ff;
+    }
+
+    .name {
+      font-weight: 700;
+      color: #ff0000;
+    }
+
+    .domain {
+      font-weight: 700;
+      color: #337ab7;
+    }
+  }
+}

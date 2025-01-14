@@ -1,7 +1,12 @@
 {
   "common": {
     "search": "Search",
-    "view": "See more "
+    "view": "See more ",
+    "collapse": "Collapse ",
+    "yes": "Yes",
+    "no": "No",
+    "seenow": "See now",
+    "samecategory": "Same category"
   },
   "header": {
     "menu": {
@@ -57,6 +62,7 @@
     }
   },
   "movie": {
+    "moviecontent": "Movie content",
     "cartoon": {
       "title": {
         "heading": "Cartoon"
@@ -76,6 +82,24 @@
       "title": {
         "heading": "TV shows"
       }
+    },
+    "movieDetails": {
+      "cinema": "Cinema",
+      "language": "Language",
+      "episodeStatus": "Currently airing",
+      "newestEpisode": "Newest episode",
+      "country": "Country",
+      "cast": "Cast",
+      "category": "Category"
+    },
+    "movieSearchTip": {
+      "message": "If you can't find a movie, please search on Google using the following syntax:",
+      "syntax": "Movie Name + VanPhuTin",
+      "example": "For example, to find the movie",
+      "movieName": "Cuu Trung Tu",
+      "domain": "Cuu Trung Tu VanPhuTin",
+      "website": "On this website, you can watch without lag and without ads.",
+      "commentNote": "Please leave a comment if you encounter any issues with your viewing experience. We will try to resolve it as soon as possible."
     }
   }
 }

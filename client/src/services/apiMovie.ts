@@ -2,19 +2,23 @@ import { ApiResponseMovieDetail } from "../interfaces/MoiveDetail";
 import { ApiResponseMovie } from "../interfaces/Movie";
 import { api2Instance } from "../utils/axiosConfig";
 import { handleApiError } from "../utils/handleApiError";
+import { AxiosResponse } from "axios";
 
 const MOVIE_DETAIL_API: string = "phim";
 const MOVIE_API: string = "v1/api/danh-sach/";
 
 // lấy chi tiết 1 bộ phim
-export const detailMovie = async (
-  name: string
-): Promise<ApiResponseMovieDetail> => {
+export const getMovieDetails = async (
+  slug: string
+): Promise<ApiResponseMovieDetail | null> => {
   try {
-    const response = await api2Instance.get(`${MOVIE_DETAIL_API}/${name}`);
-    return response.data;
+    const response: AxiosResponse<ApiResponseMovieDetail> =
+      await api2Instance.get(`${MOVIE_DETAIL_API}/${slug}`);
+
+    return response as unknown as ApiResponseMovieDetail;
   } catch (error) {
-    throw new Error(handleApiError(error));
+    console.error("Error fetching movie details:", error);
+    throw error; // Hoặc trả về null trong catch
   }
 };
 

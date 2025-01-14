@@ -1,0 +1,83 @@
+@import "../../../assets/style/utils/variables";
+@import "../../../assets/style/utils/responive";
+.movie-detail-box {
+  .mb-title {
+    margin-bottom: $margin-botton;
+  }
+
+  .movie-detail {
+    border-radius: 10px;
+    background: #000;
+    .image-banner {
+      width: 100%;
+      position: relative;
+
+      img {
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .halim-watch-box {
+        position: absolute;
+        font-weight: 700;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        border-radius: 5px;
+        background-image: linear-gradient(
+          to right,
+          #e43603,
+          // Màu đỏ
+          #ffbb00,
+          // Màu vàng
+          #ff6290,
+          // Màu hồng
+          #ff5000 // Màu cam
+        );
+        box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+        transition: background-position 0.5s ease-in-out;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border: none;
+        background-size: 200% 100%;
+
+        &:hover {
+          background-position: 100% 0;
+        }
+      }
+
+      .icon {
+        padding: 0 10px;
+      }
+    }
+
+    .movie-info {
+      .title {
+        color: $color-text-primary;
+      }
+
+      .color-text {
+        color: $color-text-detail;
+      }
+
+      .time {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        .icon {
+          margin-right: 10px;
+        }
+        .calendar {
+          margin-bottom: 0;
+          margin-right: 30px;
+        }
+
+        .lock {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.cast {
+  display: block;
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    display: inline-block;
+    li {
+      display: inline;
+      margin-right: 5px;
+    }
+  }
+}

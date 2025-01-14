@@ -1,17 +1,21 @@
-export interface Tmdb {
+interface TmdbDetails {
   type: string | null;
-  id: string | null;
-  season: string | null;
+  id: number | null;
+  season: number | null;
   vote_average: number;
   vote_count: number;
 }
 
-export interface Imdb {
+interface ImdbDetails {
   id: string | null;
 }
 
-export interface TimeInfo {
-  time: string;
+interface Created {
+  time: string; // Use Date type if needed for specific date operations
+}
+
+interface Modified {
+  time: string; // Use Date type if needed for specific date operations
 }
 
 export interface Category {
@@ -20,10 +24,18 @@ export interface Category {
   slug: string;
 }
 
-export interface Country {
+interface Country {
   id: string;
   name: string;
   slug: string;
+}
+
+export interface Actor {
+  name: string; // Assuming name is available, can be adjusted based on actual data
+}
+
+interface Director {
+  name: string; // Assuming name is available, can be adjusted based on actual data
 }
 
 export interface Episode {
@@ -38,11 +50,7 @@ export interface Episode {
 }
 
 export interface Movie {
-  tmdb: Tmdb;
-  imdb: Imdb;
-  created: TimeInfo;
-  modified: TimeInfo;
-  _id: string;
+  _id?: string;
   name: string;
   slug: string;
   origin_name: string;
@@ -64,15 +72,20 @@ export interface Movie {
   showtimes: string;
   year: number;
   view: number;
-  actor: string[];
-  director: string[];
+  actor: Actor[];
+  director: Director[];
   category: Category[];
   country: Country[];
+  tmdb: TmdbDetails;
+  imdb: ImdbDetails;
+  created: Created;
+  modified: Modified;
+  episodes: Episode[];
 }
 
 export interface ApiResponseMovieDetail {
   status: boolean;
   msg: string;
   movie: Movie;
-  episodes: Episode[];
+  episodes?: Episode[]; // Optional episodes array if not always present
 }

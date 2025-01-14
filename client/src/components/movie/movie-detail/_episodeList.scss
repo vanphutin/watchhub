@@ -1,0 +1,43 @@
+@import "../../../assets/style/utils/variables";
+.episode-list {
+  display: inline-block;
+
+  .server_name {
+    font-size: 1.2rem;
+    color: $color-highlight;
+    margin-bottom: 0;
+    display: inline-block;
+    padding: 5px 10px;
+    background: $color-background;
+
+    .icon {
+      margin-right: 5px;
+      font-size: 1rem;
+    }
+  }
+  ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+      padding-right: 10px;
+      display: inline-block;
+      button {
+        background: #1f2c3e;
+        padding: 7.5px 10px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+        transition: 0.6s all;
+        border: none;
+        &:hover {
+          background-color: rgb(205, 187, 51);
+        }
+      }
+    }
+  }
+  ul.full-episodes {
+    background-color: #172127;
+    padding: 10px;
+  }
+}

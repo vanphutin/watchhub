@@ -1,0 +1,41 @@
+@import "../../../assets/style/utils/variables";
+.content-heading {
+  background: $gradient-text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+hr {
+  margin: 0;
+  margin-bottom: 15px;
+}
+.content {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.3s ease;
+  max-height: 3.2em;
+  color: #989898;
+}
+
+.content.expanded {
+  -webkit-line-clamp: unset;
+  max-height: 100%;
+  overflow: visible;
+}
+span {
+  color: #989898;
+  cursor: pointer;
+
+  &:hover {
+    color: #ebe0e0;
+  }
+}
+
+.movie-detail-content-box {
+  background-color: #101821;
+  padding: 10px 10px;
+}

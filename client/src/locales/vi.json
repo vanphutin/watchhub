@@ -1,7 +1,12 @@
 {
   "common": {
     "search": "Tìm kiếm",
-    "view": "Xem thêm"
+    "view": "Xem thêm ",
+    "collapse": "Thu gọn ",
+    "yes": "Có",
+    "no": "Không",
+    "seenow": "Xem ngay",
+    "samecategory": "Chung thể loại"
   },
   "header": {
     "menu": {
@@ -58,6 +63,7 @@
     }
   },
   "movie": {
+    "moviecontent": "Nội dung phim",
     "cartoon": {
       "title": {
         "heading": "Phim hoạt hình"
@@ -77,6 +83,24 @@
       "title": {
         "heading": "Chương trình truyền hình"
       }
+    },
+    "movieDetails": {
+      "cinema": "Chiếu rạp",
+      "language": "Ngôn ngữ",
+      "episodeStatus": "Đang phát",
+      "newestEpisode": "Tập mới nhất",
+      "country": "Quốc gia",
+      "cast": "Diễn viên",
+      "category": "Thể loại"
+    },
+    "movieSearchTip": {
+      "message": "Mẹo tìm phim không thấy, các bạn vui lòng tìm trên Google với cú pháp sau ,",
+      "syntax": "Tên Phim + VanPhuTin",
+      "example": "Ví dụ tìm phim",
+      "movieName": "Cửu Trùng Tử",
+      "domain": "Cửu Trùng Tử VanPhuTin",
+      "website": "Tại Website này bạn xem không giật lag và không quảng cáo.",
+      "commentNote": "Vui lòng để lại comment nếu có vấn đề về trải nghiệm xem phim, chúng tôi sẽ cố gắng xử lý nó trong thời gian sơm nhất."
     }
   }
 }

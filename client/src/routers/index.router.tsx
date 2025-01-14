@@ -1,9 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "../layouts/HomePage";
-import LoginPage from "../layouts/LoginPage"; // Import LoginPage nếu bạn chưa có
+
 import { AuthLayout } from "./AuthLayout";
-import RegisterPage from "../layouts/RegisterPage";
 import Header from "../layouts/Header";
+import LoginPage from "../pages/LoginPage";
+import HomePage from "../pages/HomePage";
+import RegisterPage from "../pages/RegisterPage";
+import AboutPage from "../pages/AboutPage";
+import PaginationPage from "../pages/PaginationPage";
+import Main from "../pages/Main";
+import MovieDetailPage from "../pages/MovieDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -14,17 +19,34 @@ const router = createBrowserRouter([
         path: "/login",
       },
       {
-        element: <Header />,
-        children: [
-          {
-            element: <HomePage />,
-            path: "/",
-          },
-        ],
-      },
-      {
         element: <RegisterPage />,
         path: "/register",
+      },
+      {
+        element: <Header />, // Header sẽ hiển thị trên các trang con
+        children: [
+          {
+            element: <Main />, // Main bao bọc các trang con như HomePage, AboutPage
+            children: [
+              {
+                element: <HomePage />,
+                path: "/",
+              },
+              {
+                element: <PaginationPage />,
+                path: "/last-update",
+              },
+              {
+                element: <AboutPage />,
+                path: "/about",
+              },
+              {
+                element: <MovieDetailPage />,
+                path: "/movie/:id",
+              },
+            ],
+          },
+        ],
       },
     ],
   },

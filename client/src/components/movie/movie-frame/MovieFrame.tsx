@@ -28,7 +28,7 @@ const MovieFrame: React.FC<MovieFrameProps> = ({
   const tab = searchParams.get("tab");
   return (
     <>
-      <Heading className={movie.type_list} context={t(title)} contextSub="" />
+      <Heading className={movie?.type_list} context={t(title)} contextSub="" />
       <ul className={`movie movies-${type_list} row `}>
         {items.map((item) => (
           <li
