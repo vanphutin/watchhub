@@ -6,7 +6,13 @@
     "yes": "Có",
     "no": "Không",
     "seenow": "Xem ngay",
-    "samecategory": "Chung thể loại"
+    "samecategory": "Chung thể loại",
+    "eventvideo": {
+      "success": "Tự động chuyển tiếp video",
+      "noit": "Tự động chuyển",
+      "next": "Tập tiếp theo",
+      "prev": "Tập trước"
+    }
   },
   "header": {
     "menu": {

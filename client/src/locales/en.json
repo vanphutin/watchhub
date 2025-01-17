@@ -6,7 +6,13 @@
     "yes": "Yes",
     "no": "No",
     "seenow": "See now",
-    "samecategory": "Same category"
+    "samecategory": "Same category",
+    "eventvideo": {
+      "success": "Auto-forward video",
+      "noit": "Auto transfer",
+      "next": "Next episode",
+      "prev": "Previous episode"
+    }
   },
   "header": {
     "menu": {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieDetails } from "../services/apiMovie";
-import { Episode, Movie } from "../interfaces/MoiveDetail";
+import { useEpisode } from "../hooks/useEpisode";
 import MovieDetails from "../components/movie/movie-detail/MovieDetails";
 import EpisodeList from "../components/movie/movie-detail/EpisodeList";
 import MovieSearchTip from "../layouts/MovieSearchTip";
@@ -10,6 +10,7 @@ import useCategoryMovie from "../hooks/useCategoryMovie";
 import { useMovies } from "../hooks/useMovies";
 import MovieFrame from "../components/movie/movie-frame/MovieFrame";
 import MovieDetailLoading from "../components/movie/movie-detail/MovieDetailLoading";
+import { Movie } from "../interfaces/MoiveDetail";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -18,34 +19,38 @@ const MovieDetailPage = () => {
 
   const [movie, setMovie] = useState<Movie | null>(null);
   const movieCategory = useCategoryMovie(movie?.type ?? "");
-  // console.log("movieType", movieCategory);
-
+  const {
+    setCurrentMovie,
+    setEpisodes,
+    episodes,
+    currentMovie,
+    setCategoryMovieType,
+  } = useEpisode();
+  // Hàm lấy danh mục
   const typeMovie = (
     category: "hoat-hinh" | "phim-le" | "tv-shows" | "phim-bo" | null
   ) => {
-    if (category === "hoat-hinh") {
-      return hoatHinh;
-    } else if (category === "phim-le") {
-      return phimLe;
-    } else if (category === "tv-shows") {
-      return tvShows;
-    } else if (category === "phim-bo") {
-      return phimBo;
-    }
-    return null;
+    const categories = {
+      "hoat-hinh": hoatHinh,
+      "phim-le": phimLe,
+      "tv-shows": tvShows,
+      "phim-bo": phimBo,
+    };
+    return categories[category!];
   };
-  const movies = typeMovie(movieCategory);
 
-  // console.log("Movies for category:", movies);
-  const [episodes, setEpisodes] = useState<Episode[] | null>(null); // Quản lý episodes
-  // console.log("Component Render movie:", movie);
-  // console.log("Component Render episode:", episodes);
+  const movies = typeMovie(movieCategory ?? null);
+  useEffect(() => {
+    setCategoryMovieType(movies);
+  }, [movies]);
+  // Hàm gọi API
   const handleApi = async (id: string) => {
     try {
       const apiData = await getMovieDetails(id);
       if (apiData?.status === true) {
         setMovie(apiData.movie);
-        setEpisodes(apiData.episodes ?? null);
+        setCurrentMovie(apiData.movie);
+        setEpisodes(apiData.episodes ?? []);
       }
     } catch (error) {
       console.error("Error fetching movie details:", error);
@@ -54,63 +59,42 @@ const MovieDetailPage = () => {
 
   useEffect(() => {
     if (id) {
+      setCurrentMovie(null);
+      setEpisodes([]);
       handleApi(id);
     }
   }, [id]);
 
-  if (!movie && !episodes) {
+  if (loading || !currentMovie) {
     return <MovieDetailLoading />;
   }
 
   return (
-    <div className="movie-detail ">
+    <div className="movie-detail">
       <div className="movie-detail-infor-box">
-        {movie && episodes && (
-          <MovieDetails
-            name={movie?.name}
-            year={movie.year}
-            actor={movie.actor}
-            lang={movie?.lang}
-            origin_name={movie?.origin_name}
-            chieurap={movie?.chieurap}
-            director={movie.director}
-            time={movie.time}
-            country={movie.country}
-            poster_url={movie.poster_url}
-            episodes={episodes}
-            category={movie.category}
-            episode_current={movie.episode_current}
-            type={movie.type}
-          />
-        )}
+        <MovieDetails {...currentMovie} episodes={episodes} />
       </div>
-      <div className="movie-detail-episodes-box  mt-3">
-        {episodes && (
-          <EpisodeList
-            server_name={true}
-            episode={episodes}
-            fullEpisodes={true}
-          />
-        )}
+      <div className="movie-detail-episodes-box mt-3">
+        <EpisodeList
+          server_name={true}
+          episode={episodes}
+          fullEpisodes={true}
+        />
       </div>
-      <div className="movie-detail-searchtip-box   mt-3">
+      <div className="movie-detail-searchtip-box mt-3">
         <MovieSearchTip />
       </div>
-      <div className="movie-detail-content-box   mt-3">
-        {movie && <Content content={movie?.content ?? ""} />}
+      <div className="movie-detail-content-box mt-3">
+        <Content content={movie?.content ?? ""} />
       </div>
       <div className="same-category">
-        <div className="cartoon">
-          <MovieFrame
-            movie={
-              movies ? movies : { items: [], titlePage: "", type_list: "" }
-            }
-            title={"common.samecategory"}
-            loading={loading}
-            hasMore={hasMore[movieCategory ?? ""]}
-            loadMore={() => loadMore(movieCategory ?? "")}
-          />
-        </div>
+        <MovieFrame
+          movie={movies || { items: [], titlePage: "", type_list: "" }}
+          title={"common.samecategory"}
+          loading={loading}
+          hasMore={hasMore[movieCategory ?? ""]}
+          loadMore={() => loadMore(movieCategory ?? "")}
+        />
       </div>
       <div className="h" style={{ height: "10vh" }}></div>
     </div>

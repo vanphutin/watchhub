@@ -10,6 +10,7 @@ import PaginationPage from "../pages/PaginationPage";
 import Main from "../pages/Main";
 import MovieDetailPage from "../pages/MovieDetailPage";
 import MovieGenres from "../pages/MovieGenres";
+import PlayerMoviePage from "../pages/PlayerMoviePage";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
               {
                 element: <MovieGenres />,
                 path: "/movie-genres/:id",
+              },
+              {
+                path: "/movie-play/:moviename/:tapPhim",
+                element: <PlayerMoviePage />,
+              },
+              {
+                path: "*",
+                element: <h1>404 - Không tìm thấy trang</h1>, // Route mặc định
               },
             ],
           },

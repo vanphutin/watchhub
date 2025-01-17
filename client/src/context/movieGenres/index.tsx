@@ -11,18 +11,15 @@ export const MovieGenresProvider: React.FC<{ children: React.ReactNode }> = ({
   const [title, setTitle] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Khi component load lại, kiểm tra localStorage
   useEffect(() => {
     const savedKeySlug = localStorage.getItem("keySlug");
     const savedKeyTitle = localStorage.getItem("keyTitle");
 
-    // Nếu có keySlug và keyTitle trong localStorage, tải lại dữ liệu
     if (savedKeySlug && savedKeyTitle) {
       handleGetMoviesByCategory(savedKeySlug, savedKeyTitle);
     }
   }, []);
 
-  // Lưu keySlug và keyTitle vào localStorage khi bắt đầu sử dụng
   const handleGetMoviesByCategory = async (item: string, title: string) => {
     localStorage.setItem("keySlug", item);
     localStorage.setItem("keyTitle", title);
@@ -31,15 +28,15 @@ export const MovieGenresProvider: React.FC<{ children: React.ReactNode }> = ({
       setLoading(true);
       const res = await getMoviesByCategory(item);
       if (res && res.length > 0) {
-        setMoviesGenres(res); // Cập nhật dữ liệu vào state
+        setMoviesGenres(res);
         if (!title || title === "") {
           const savedKeyTitle = localStorage.getItem("keyTitle");
-          setTitle(savedKeyTitle || ""); // Đảm bảo giá trị title hợp lệ
+          setTitle(savedKeyTitle || "");
         } else {
           setTitle(title);
         }
       } else {
-        setMoviesGenres([]); // Nếu không có dữ liệu, set mảng rỗng
+        setMoviesGenres([]);
       }
     } catch (error) {
       handleApiError(error);
