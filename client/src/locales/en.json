@@ -12,7 +12,8 @@
       "noit": "Auto transfer",
       "next": "Next episode",
       "prev": "Previous episode"
-    }
+    },
+    "welcome": "Enjoy the movie!"
   },
   "header": {
     "menu": {
@@ -21,7 +22,7 @@
       "tvSeries": "TV Series",
       "movieGenres": "Movie Genres",
       "blog": "Blog",
-      "about": "About",
+      "about": "Technologies",
       "tvshows": "TV Shows",
       "subMenu": {
         "hanh-dong": "Action",
@@ -112,6 +113,43 @@
       "loading": "Looking for movies ",
       "result": "Movie search results ",
       "notFound": "Movie not found"
+    }
+  },
+  "footer": {
+    "logo": "vanphutin",
+    "description": "Vanphutin is a free online movie streaming site with high-quality content. We provide movies with Vietnamese subtitles, dubbing, and voiceovers. With over 10,000+ new movies, we quickly update the latest cinema releases, Chinese dramas, Korean dramas, and more, all with an intuitive interface and fast loading speed. Motchill brings you a perfect entertainment experience.",
+    "contact": "Contact Facebook: @vanphutin.info",
+    "sections": {
+      "newMovies": {
+        "title": "New Movies",
+        "items": [
+          "Science Movies",
+          "Horror Movies",
+          "Cinema Movies",
+          "Crime Movies",
+          "Action Movies"
+        ]
+      },
+      "featuredMovies": {
+        "title": "Featured Movies",
+        "items": [
+          "American Movies",
+          "Korean Movies",
+          "Chinese Movies",
+          "Japanese Movies",
+          "Thai Movies"
+        ]
+      },
+      "information": {
+        "title": "Information",
+        "items": [
+          "About Us",
+          "Contact Us",
+          "Terms of Use",
+          "Privacy Policy",
+          "Copyright Complaints"
+        ]
+      }
     }
   }
 }

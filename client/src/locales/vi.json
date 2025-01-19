@@ -12,7 +12,8 @@
       "noit": "Tự động chuyển",
       "next": "Tập tiếp theo",
       "prev": "Tập trước"
-    }
+    },
+    "welcome": "Chúc bạn xem phim vui vẻ!"
   },
   "header": {
     "menu": {
@@ -22,7 +23,7 @@
       "movieGenres": "Thể loại phim",
       "blog": "Blog",
       "tvshows": "Phim truyền hình",
-      "about": "Giới thiệu",
+      "about": "Công nghệ",
       "subMenu": {
         "hanh-dong": "Hành động",
         "bi-an": "Bí ẩn",
@@ -113,6 +114,43 @@
       "loading": "Đang tìm kiếm phim ",
       "result": "Kết quả kiếm phim ",
       "notFound": "Không tìm thấy phim"
+    }
+  },
+  "footer": {
+    "logo": "vanphutin",
+    "description": "Vanphutin là trang xem phim online miễn phí chất lượng cao, cung cấp phim với phụ đề tiếng Việt, thuyết minh, và lồng tiếng. Với hơn 10.000+ phim mới, luôn cập nhật nhanh nhất các phim chiếu rạp, phim bộ Trung Quốc, Hàn Quốc, cùng giao diện trực quan và tốc độ tải nhanh. Motchill mang đến trải nghiệm giải trí hoàn hảo cho bạn.",
+    "contact": "Liên hệ Facebook: @vanphutin.info",
+    "sections": {
+      "phimMoi": {
+        "title": "Phim mới",
+        "items": [
+          "Phim Khoa Học",
+          "Phim Kinh Dị",
+          "Phim Chiếu Rạp",
+          "Phim Hình Sự",
+          "Phim Hành Động"
+        ]
+      },
+      "phimHay": {
+        "title": "Phim hay",
+        "items": [
+          "Phim Âu Mỹ",
+          "Phim Hàn Quốc",
+          "Phim Trung Quốc",
+          "Phim Nhật Bản",
+          "Phim Thái Lan"
+        ]
+      },
+      "thongTin": {
+        "title": "Thông tin",
+        "items": [
+          "Giới thiệu",
+          "Liên hệ chúng tôi",
+          "Điều khoản sử dụng",
+          "Chính sách riêng tư",
+          "Khiếu nại bản quyền"
+        ]
+      }
     }
   }
 }
