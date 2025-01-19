@@ -2,6 +2,7 @@ import React from "react";
 import InputField from "../common/inputField/InputField";
 import Button from "../common/button/Button";
 import { Link } from "react-router-dom";
+import { GrFormPrevious } from "react-icons/gr";
 
 interface LoginFormProps {
   login: { username: string; password: string };
@@ -20,6 +21,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
   return (
     <>
       <form onSubmit={onSubmit}>
+        {" "}
+        <Link to="/">
+          <span className="back-home text-black">
+            <GrFormPrevious />
+            Back Home
+          </span>
+        </Link>
         <h1 className="login-title">Welcome back ✋</h1>
         <div className="form-input">
           <InputField

@@ -2,6 +2,7 @@ import React from "react";
 import InputField from "../common/inputField/InputField";
 import { Link } from "react-router-dom";
 import Button from "../common/button/Button";
+import { GrFormPrevious } from "react-icons/gr";
 
 interface RegisterFormProps {
   register: { username: string; password: string; email: string };
@@ -21,6 +22,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
   return (
     <>
       <form onSubmit={onSubmit}>
+        <Link to="/">
+          <span className="back-home text-black">
+            <GrFormPrevious />
+            Back Home
+          </span>
+        </Link>
         <h1 className="login-title">Create an account</h1>
         <div className="form-input">
           <InputField
