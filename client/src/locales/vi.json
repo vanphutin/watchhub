@@ -13,7 +13,9 @@
       "next": "Tập tiếp theo",
       "prev": "Tập trước"
     },
-    "welcome": "Chúc bạn xem phim vui vẻ!"
+    "welcome": "Chúc bạn xem phim vui vẻ!",
+    "notfound": "Ồ! Trang bạn đang tìm kiếm không tồn tại.",
+    "return": "Trở về trang chủ"
   },
   "header": {
     "menu": {

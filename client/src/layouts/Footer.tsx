@@ -7,7 +7,6 @@ import useDeviceType from "../hooks/useDeviceType";
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const size = useDeviceType();
-  console.log("size", size);
   const sections = t("footer.sections", { returnObjects: true });
 
   return (

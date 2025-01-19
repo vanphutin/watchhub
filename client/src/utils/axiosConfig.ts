@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 
 // Cấu hình cho API 1
 const api1Instance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:9000/api/v1", // URL của API 1
+  baseURL: "https://server-watchhub.onrender.com/api/v1", // URL của API 1
   timeout: 10000, // Thời gian chờ request (ms)
   headers: {
     "Content-Type": "application/json",

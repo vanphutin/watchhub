@@ -13,7 +13,9 @@
       "next": "Next episode",
       "prev": "Previous episode"
     },
-    "welcome": "Enjoy the movie!"
+    "welcome": "Enjoy the movie!",
+    "notfound": "Oops! The page you’re looking for doesn’t exist",
+    "return": "Go back home"
   },
   "header": {
     "menu": {

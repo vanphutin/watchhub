@@ -12,6 +12,7 @@ import MovieGenres from "../pages/MovieGenres";
 import PlayerMoviePage from "../pages/PlayerMoviePage";
 import SearchResult from "../pages/SearchResult";
 import TechnologiesPage from "../pages/TechnologiesPage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
               },
               {
                 path: "*",
-                element: <h1>404 - Không tìm thấy trang</h1>, // Route mặc định
+                element: <NotFoundPage />, // Route mặc định
               },
             ],
           },
