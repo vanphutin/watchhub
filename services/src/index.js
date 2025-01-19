@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8081;
 var whitelist = [
   "http://localhost:3000",
   "http://localhost:4000",
-  "https://watchhub-vpt.netlify.app/",
+  "https://watchhub-vpt.netlify.app",
 ];
 var corsOptions = {
   origin: function (origin, callback) {
