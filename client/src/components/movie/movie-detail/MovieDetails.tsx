@@ -9,8 +9,9 @@ import { Movie } from "../../../interfaces/MoiveDetail";
 import "./_movieDetails.scss";
 import { FaPlay } from "react-icons/fa";
 import useDeviceType from "../../../hooks/useDeviceType";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEpisode } from "../../../hooks/useEpisode";
 
 const MovieDetails: React.FC<Movie> = ({
   poster_url,
@@ -26,9 +27,26 @@ const MovieDetails: React.FC<Movie> = ({
   origin_name,
   episode_current,
 }) => {
+  const { id } = useParams();
+
   const size = useDeviceType();
   const { t } = useTranslation();
-  const getLinkView = episodes.map((e) => e.server_data[0].link_embed);
+  const getSlug = episodes && episodes.map((e) => e.server_data[0].slug);
+
+  const { setCurrentEpisode } = useEpisode();
+
+  const handleWatchEpisode = () => {
+    const firstEpisode = episodes && episodes[0].server_data[0];
+    if (firstEpisode)
+      setCurrentEpisode({
+        filename: firstEpisode.filename,
+        link_embed: firstEpisode.link_embed,
+        link_m3u8: firstEpisode.link_m3u8,
+        name: firstEpisode.name,
+        slug: firstEpisode.slug,
+      });
+  };
+
   return (
     <div
       className={`movie-detail-box pt-3 ${
@@ -40,7 +58,10 @@ const MovieDetails: React.FC<Movie> = ({
           <div className="image-banner">
             {" "}
             <img src={poster_url} alt="" className="img" />
-            <Link to={getLinkView.toString()} target="_black">
+            <Link
+              to={`/movie-play/${id}/${getSlug}`}
+              onClick={handleWatchEpisode}
+            >
               <Button
                 text={t("common.seenow")}
                 className="halim-watch-box"
@@ -84,7 +105,10 @@ const MovieDetails: React.FC<Movie> = ({
           </div>
           <div className="lastEp mb-title cast ">
             <span> {t("movie.movieDetails.newestEpisode")}: </span>
-            <EpisodeList fullEpisodes={false} episode={episodes} />
+            <EpisodeList
+              fullEpisodes={false}
+              episode={episodes ? episodes : []}
+            />
           </div>
           <div className="country mb-title">
             <span>{t("movie.movieDetails.country")}: </span>
@@ -92,11 +116,11 @@ const MovieDetails: React.FC<Movie> = ({
           </div>
           <div className="cast mb-title">
             <span>{t("movie.movieDetails.cast")}: </span>
-            <CastList actors={actor} />
+            {actor && <CastList actors={actor} />}
           </div>
           <div className="categorty cast mb-title">
             <span>{t("movie.movieDetails.category")}: </span>{" "}
-            <CategoryList categories={category} />
+            {category && <CategoryList categories={category} />}
           </div>
         </div>
       </div>

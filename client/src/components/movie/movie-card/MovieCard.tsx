@@ -1,6 +1,7 @@
 import React from "react";
 import "./_movieCard.scss";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface MovieDetailProps {
   name: string;
@@ -28,11 +29,13 @@ const MovieCard: React.FC<MovieDetailProps> = ({
         <div className="movie-card-frame">
           {/* Ảnh và trạng thái của thẻ */}
           <div className="card-banner">
-            <img
+            <LazyLoadImage
               className="card-banner-image"
               src={`https://phimimg.com/${poster_url}`}
-              alt="Movie Poster"
+              alt={`Poster of ${name}`}
+              effect="blur"
             />
+
             <div className="card-overlay"></div>
             {/* Các trạng thái phụ như Vietsub, trending */}
             <div className="status-badge-intro">

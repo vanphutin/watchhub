@@ -5,13 +5,13 @@ import Header from "../layouts/Header";
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
 import RegisterPage from "../pages/RegisterPage";
-import AboutPage from "../pages/AboutPage";
 import PaginationPage from "../pages/PaginationPage";
 import Main from "../pages/Main";
 import MovieDetailPage from "../pages/MovieDetailPage";
 import MovieGenres from "../pages/MovieGenres";
 import PlayerMoviePage from "../pages/PlayerMoviePage";
 import SearchResult from "../pages/SearchResult";
+import TechnologiesPage from "../pages/TechnologiesPage";
 
 const router = createBrowserRouter([
   {
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
                 path: "/last-update",
               },
               {
-                element: <AboutPage />,
-                path: "/about",
+                element: <TechnologiesPage />,
+                path: "/technologies",
               },
               {
                 element: <MovieDetailPage />,

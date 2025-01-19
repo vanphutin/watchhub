@@ -47,7 +47,7 @@ export interface Item {
   country: Country[];
 }
 
-interface MovieData {
+export interface MovieData {
   seoOnPage: SeoOnPage;
   breadCrumb: Breadcrumb[];
   titlePage: string;

@@ -9,11 +9,12 @@ const CastList: React.FC<CastListProps> = ({ actors }) => {
   return (
     <>
       <ul>
-        {actors.map((actor, index) => (
-          <li className="color-text" key={index}>
-            {typeof actor === "string" ? actor + ", " : actor.name + ", "}
-          </li>
-        ))}
+        {actors &&
+          actors.map((actor, index) => (
+            <li className="color-text" key={index}>
+              {typeof actor === "string" ? actor + ", " : actor.name + ", "}
+            </li>
+          ))}
       </ul>
     </>
   );

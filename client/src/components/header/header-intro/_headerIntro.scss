@@ -24,6 +24,10 @@
     position: relative;
     display: flow-root;
     margin: 0;
+    a {
+      text-decoration: none;
+      padding: 0 5px;
+    }
     span {
       background: linear-gradient(to right, #ff8a00, #ff2070);
       -webkit-background-clip: text;

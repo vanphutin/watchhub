@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Episode } from "../../../interfaces/MoiveDetail";
 import Button from "../../common/button/Button";
 import "./_episodeList.scss";
 import { FaServer } from "react-icons/fa";
+import { useEpisode } from "../../../hooks/useEpisode";
+import { EpisodeListType } from "../../../context/episodeContext/EpisodeContext";
 
 interface EpisodeListProps {
   episode: Episode[];
@@ -20,7 +22,14 @@ const EpisodeList: React.FC<EpisodeListProps> = ({
       .sort((a, b) => b.filename.localeCompare(a.filename))
       .slice(0, 5);
   });
+  const { id } = useParams();
+  const { setCurrentEpisode } = useEpisode();
 
+  const handleWatchEpisode = (render: EpisodeListType | undefined) => {
+    if (render) {
+      setCurrentEpisode(render);
+    }
+  };
   return (
     <div className="episode-list">
       {server_name && (
@@ -40,7 +49,10 @@ const EpisodeList: React.FC<EpisodeListProps> = ({
                 .map((render, index) => (
                   <li key={index} className="p-1">
                     <span>
-                      <Link to={render.link_embed} target="_blank">
+                      <Link
+                        to={`/movie-play/${id}/${render.slug}`}
+                        onClick={() => handleWatchEpisode(render)}
+                      >
                         <Button text={render.name} />
                       </Link>
                     </span>
@@ -53,7 +65,10 @@ const EpisodeList: React.FC<EpisodeListProps> = ({
             {renderTopFive &&
               renderTopFive.map((render, index) => (
                 <li key={index}>
-                  <Link to={render.link_embed} target="_blank">
+                  <Link
+                    to={`/movie-play/${id}/${render.slug}`}
+                    onClick={() => handleWatchEpisode(render)}
+                  >
                     <Button text={render.name} />
                   </Link>
                 </li>

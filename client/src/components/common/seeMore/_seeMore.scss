@@ -1,0 +1,21 @@
+.see-more {
+  .text {
+    cursor: pointer;
+    background: #1f2933;
+    width: 30%;
+    font-size: 0.8rem;
+    display: inline-block;
+    text-align: right;
+    margin: 5px 0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: 0.5s all;
+    color: #ffffff;
+    float: right;
+    background: linear-gradient(to right, #151d25, #194161);
+
+    &:hover {
+      background: #181818;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../../assets/style/utils/variables";
+.heading {
+  padding: 50px 0px 0px 0px;
+  text-transform: uppercase;
+  .context {
+    @extend .text-heading;
+    font-size: 1.3rem;
+
+    .icon {
+      margin: 0px 10px 0 0;
+      display: inline-block;
+      animation: rotate 5s linear infinite;
+    }
+
+    /* Định nghĩa hoạt ảnh quay 360 độ */
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .context-sub {
+    background: #1f2933;
+    width: 50%;
+    font-size: 0.8rem;
+    display: inline-block;
+    text-align: right;
+    margin: 5px 0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: 0.5s all;
+    color: #ffffff;
+    float: right;
+    background: linear-gradient(to right, #151d25, #194161);
+
+    &:hover {
+      background: #181818;
+    }
+  }
+}

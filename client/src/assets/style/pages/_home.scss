@@ -1,0 +1,12 @@
+@import "../utils/variables";
+
+.home {
+  .welcome {
+    background: linear-gradient(to right, #27bb49, #ff2070);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    font-family: inherit;
+  }
+}

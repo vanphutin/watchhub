@@ -4,7 +4,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import { MenuContext } from "../../../context/menuToggle/MenuContext";
 import { useTranslation } from "react-i18next";
-import { getMoviesByCategory } from "../../../services/apiMovie";
+import { MovieGenresContext } from "../../../context/movieGenres/MovieGenresContext";
 
 const HeaderSub = () => {
   const { t } = useTranslation();
@@ -69,15 +69,20 @@ const HeaderSub = () => {
     },
     about: {
       name: t("header.menu.about"),
-      link: "/about",
+      link: "/technologies",
       subMenu: [],
     },
   };
 
+  const contextMoviesGenres = useContext(MovieGenresContext);
   const context = useContext(MenuContext);
   if (!context) {
     throw new Error("Header must be used within a ToggleMenuProvider");
   }
+  if (!contextMoviesGenres) {
+    throw new Error("Header must be used within a ToggleMenuProvider");
+  }
+  const { handleGetMoviesByCategory } = contextMoviesGenres;
   const { toggleMenu } = context;
   const handleClick = (e: React.MouseEvent) => {
     const dataName = e.currentTarget.getAttribute("data-name");
@@ -87,24 +92,16 @@ const HeaderSub = () => {
   };
 
   const handleLinkClick = (href: string) => {
-    // Kiểm tra xem hiện tại có đang ở trang Home hay không
     if (location.pathname !== "/") {
-      // Nếu không phải trang Home, điều hướng về Home
       navigate("/", { replace: true });
-      // Sau khi điều hướng về Home, thêm phần hash vào URL
       setTimeout(() => {
-        window.location.hash = href; // Sau khi vào trang Home, cuộn đến phần mục tiêu
+        window.location.hash = href;
       }, 0);
     } else {
-      // Nếu đang ở trang Home, chỉ cần cuộn đến phần mục tiêu
       window.location.hash = href;
     }
   };
-  const handleGetMoviesByCategory = async (item: string) => {
-    console.log("sulg", item);
-    const res = await getMoviesByCategory(item);
-    console.log(res);
-  };
+
   return (
     <div className="header header-sub">
       <div className="container menu gap-3">
@@ -121,7 +118,7 @@ const HeaderSub = () => {
                 name={name}
                 submenu={subMenu}
                 icon={icon}
-                onClick={() => href && handleLinkClick(href)} // Gọi handleLinkClick khi nhấn vào
+                onClick={() => href && handleLinkClick(href)}
               />
               {subMenu.length > 0 && (
                 <div className="dropdown-menu">
@@ -131,7 +128,12 @@ const HeaderSub = () => {
                         key={index + item}
                         className="submenu-item"
                         data-name={name}
-                        onClick={() => handleGetMoviesByCategory(item)}
+                        onClick={() =>
+                          handleGetMoviesByCategory(
+                            item,
+                            t(`header.menu.subMenu.${item}`)
+                          )
+                        }
                       >
                         <NavLink key={index} to={`movie-genres/${item}`}>
                           {t(`header.menu.subMenu.${item}`)}
