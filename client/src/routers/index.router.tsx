@@ -11,6 +11,7 @@ import Main from "../pages/Main";
 import MovieDetailPage from "../pages/MovieDetailPage";
 import MovieGenres from "../pages/MovieGenres";
 import PlayerMoviePage from "../pages/PlayerMoviePage";
+import SearchResult from "../pages/SearchResult";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
               {
                 path: "/movie-play/:moviename/:tapPhim",
                 element: <PlayerMoviePage />,
+              },
+              {
+                path: "/tim-kiem",
+                element: <SearchResult />,
               },
               {
                 path: "*",

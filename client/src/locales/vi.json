@@ -108,6 +108,11 @@
       "domain": "Cửu Trùng Tử VanPhuTin",
       "website": "Tại Website này bạn xem không giật lag và không quảng cáo.",
       "commentNote": "Vui lòng để lại comment nếu có vấn đề về trải nghiệm xem phim, chúng tôi sẽ cố gắng xử lý nó trong thời gian sơm nhất."
+    },
+    "movieSearch": {
+      "loading": "Đang tìm kiếm phim ",
+      "result": "Kết quả kiếm phim ",
+      "notFound": "Không tìm thấy phim"
     }
   }
 }

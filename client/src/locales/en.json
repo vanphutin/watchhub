@@ -107,6 +107,11 @@
       "domain": "Cuu Trung Tu VanPhuTin",
       "website": "On this website, you can watch without lag and without ads.",
       "commentNote": "Please leave a comment if you encounter any issues with your viewing experience. We will try to resolve it as soon as possible."
+    },
+    "movieSearch": {
+      "loading": "Looking for movies ",
+      "result": "Movie search results ",
+      "notFound": "Movie not found"
     }
   }
 }

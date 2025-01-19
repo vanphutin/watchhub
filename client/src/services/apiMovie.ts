@@ -1,11 +1,11 @@
 import { ApiResponseMovieDetail } from "../interfaces/MoiveDetail";
-import { ApiResponseMovie, Item } from "../interfaces/Movie";
+import { ApiResponseMovie, Item, MovieData } from "../interfaces/Movie";
 import { api2Instance } from "../utils/axiosConfig";
 import { handleApiError } from "../utils/handleApiError";
 import { AxiosResponse } from "axios";
 
 const MOVIE_DETAIL_API: string = "phim";
-const MOVIE_API: string = "v1/api/danh-sach/";
+const MOVIE_API: string = "v1/api/";
 
 // lấy chi tiết 1 bộ phim
 export const getMovieDetails = async (
@@ -27,7 +27,9 @@ export const getMovies = async (
   category: string
 ): Promise<ApiResponseMovie> => {
   try {
-    const response = await api2Instance.get(`${MOVIE_API}/${category}`);
+    const response = await api2Instance.get(
+      `${MOVIE_API}/danh-sach/${category}`
+    );
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error));
@@ -40,10 +42,10 @@ export const getMoviesByCategory = async (
 ): Promise<Item[] | null> => {
   try {
     const urls = [
-      `${MOVIE_API}/phim-le`,
-      `${MOVIE_API}/phim-bo`,
-      `${MOVIE_API}/hoat-hinh`,
-      `${MOVIE_API}/tv-shows`,
+      `${MOVIE_API}/danh-sach/phim-le`,
+      `${MOVIE_API}/danh-sach/phim-bo`,
+      `${MOVIE_API}/danh-sach/hoat-hinh`,
+      `${MOVIE_API}/danh-sach/tv-shows`,
     ];
 
     let allMovies: Item[] = []; // Mảng lưu tất cả các phim
@@ -66,4 +68,11 @@ export const getMoviesByCategory = async (
     console.error("Error fetching movies:", error);
     throw new Error("Failed to fetch movie data");
   }
+};
+
+export const getSearchMovie = async (key: string): Promise<MovieData> => {
+  const response: AxiosResponse<MovieData> = await api2Instance.get(
+    `${MOVIE_API}/tim-kiem?keyword=${key}`
+  );
+  return response.data;
 };
