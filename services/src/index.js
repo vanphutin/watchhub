@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 8081;
 
 // START CORS =====================================================================
 
-var whitelist = ["http://localhost:3000", "http://localhost:4000"];
+var whitelist = [
+  "http://localhost:3000",
+  "http://localhost:4000",
+  "https://watchhub-vpt.netlify.app/",
+];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
