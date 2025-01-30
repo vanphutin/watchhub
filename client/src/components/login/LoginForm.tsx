@@ -40,7 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           />
           <InputField
             className="password"
-            type="text"
+            type="password"
             value={login.password}
             name="password"
             placeholder="Enter your password"
